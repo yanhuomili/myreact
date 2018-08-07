@@ -12,10 +12,10 @@ class App extends Component {
     return (
     	<Router>
 	    	<div>
-	    			<Redirect to='/Home' />
 	    			<Route exact={true} path="/Home" component={Home}/>
             <Route path="/User" component={User}/>
             <Route path="/Profile" component={Profile}/>
+	    			<Redirect to='/Home' />
 	      </div>
     	</Router>
       
