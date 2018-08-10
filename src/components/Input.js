@@ -14,9 +14,9 @@ class Input extends React.Component{
 	render(){
 		const n=this.props.number;
 		return(
-			<div>
-				<input value={n} onChange={this.change}/>&nbsp;&nbsp;&nbsp;&nbsp;
-				<span>这是input的数据{n}</span>
+			<div className="search">
+				<input value={n} onChange={this.change}/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+				<input id="check" type="checkbox"/><label htmlFor="check">是否过滤数据</label>
 			</div>
 		)
 	}

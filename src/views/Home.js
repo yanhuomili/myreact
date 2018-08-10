@@ -6,7 +6,7 @@ import Btn from '../components/Btn'
 import Input from '../components/Input'
 import Input3 from '../components/Input3'
 import Outside from '../components/Outside'
-
+import SearchList from '../components/SearchList'
 
 class Left extends React.Component{
 	render(){
@@ -67,7 +67,7 @@ export default class Home extends Component {
 	    return (
 	    	<div>
 	    		<h3>首页</h3>
-	    		<ul>
+	    		{/* {<ul>
 	                <li><Link to="/User">用户</Link></li>
 	                <li><Link to="/Profile">Profile</Link></li>
     			</ul>
@@ -85,7 +85,9 @@ export default class Home extends Component {
 				<Outside		
 					left={<Left/>}
 					right={<Right/>}
-				/>
+				/>} */}
+
+				<SearchList/>
 	    	</div>
 	    );
 	}
