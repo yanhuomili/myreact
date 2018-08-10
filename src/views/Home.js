@@ -3,6 +3,22 @@ import { Link } from "react-router-dom";
 import Switch from '../components/Switch';
 import ShowTip from '../components/ShowTip'
 import Btn from '../components/Btn'
+import Input from '../components/Input'
+import Input3 from '../components/Input3'
+import Outside from '../components/Outside'
+
+
+class Left extends React.Component{
+	render(){
+		return <div>这是左边的图片</div>
+	}
+}
+class Right extends React.Component{
+	render(){
+		return <div>这是右边的文字</div>
+	}
+}
+
 
 export default class Home extends Component {
 	constructor(props){
@@ -30,11 +46,23 @@ export default class Home extends Component {
 						})
 					}
 				}
-			]
+			],
+			number:888,
 		}
 	}
-	
-	
+
+	change1(number){
+		console.log(number,'number1')
+		this.setState({
+			number:number
+		})
+	}
+	change3(number){
+		console.log(number,'number2')
+		this.setState({
+			number:number
+		})
+	}
 	render() {
 	    return (
 	    	<div>
@@ -47,6 +75,17 @@ export default class Home extends Component {
     			<Btn optionArr={this.state.text}/>
     			<Switch/>
     			<ShowTip login={this.state.login}/>
+    			<Input onOriginChange={this.change1.bind(this)} number={this.state.number}/>
+    			<Input3 onOriginChange={this.change3.bind(this)} number={this.state.number}/>
+				<Outside 
+					left={<Input onOriginChange={this.change1.bind(this)} number={this.state.number}/>}
+					right={<Input3 onOriginChange={this.change3.bind(this)} number={this.state.number}/>}
+				/>
+
+				<Outside		
+					left={<Left/>}
+					right={<Right/>}
+				/>
 	    	</div>
 	    );
 	}

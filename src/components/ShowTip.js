@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React from 'react';
 
 function TipOne(props){
 	return <h4>欢迎回来</h4>
