@@ -11,12 +11,16 @@ class Input extends React.Component{
 	change=(e)=>{
 		this.props.onOriginChange(e.target.value)
 	}
+	checkoutChange=(e)=>{
+		this.props.chChange(e.target.checked)
+		console.log(e.target.checked,'9699999')
+	}
 	render(){
 		const n=this.props.number;
 		return(
 			<div className="search">
-				<input value={n} onChange={this.change}/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-				<input id="check" type="checkbox"/><label htmlFor="check">是否过滤数据</label>
+				<input ref={this.props.inputRef	} value={n} onChange={this.change}/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+				<input id="check" onChange={this.checkoutChange}  type="checkbox"/><label htmlFor="check">是否过滤数据</label>
 			</div>
 		)
 	}

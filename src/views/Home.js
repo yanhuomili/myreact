@@ -1,5 +1,7 @@
 import React, { Component} from 'react';
 import { Link } from "react-router-dom";
+
+
 import Switch from '../components/Switch';
 import ShowTip from '../components/ShowTip'
 import Btn from '../components/Btn'
@@ -7,6 +9,8 @@ import Input from '../components/Input'
 import Input3 from '../components/Input3'
 import Outside from '../components/Outside'
 import SearchList from '../components/SearchList'
+
+import List from './List'
 
 class Left extends React.Component{
 	render(){
@@ -25,6 +29,8 @@ export default class Home extends Component {
 		super(props);
 		this.state={
 			login:false,
+			el:null,
+			dom:null,
 			text:[
 				{
 					val:'按钮1',
@@ -63,14 +69,25 @@ export default class Home extends Component {
 			number:number
 		})
 	}
+	getRef(){
+		console.log(this.el.value)	
+//		console.log(this.el.props.name)	
+		this.setState({
+//			dom:this.el.props.name
+		})
+	}
+	goTo(){
+	}
 	render() {
 	    return (
 	    	<div>
 	    		<h3>首页</h3>
-	    		{/* {<ul>
+	    		<ul>
 	                <li><Link to="/User">用户</Link></li>
 	                <li><Link to="/Profile">Profile</Link></li>
     			</ul>
+    			<List/>
+	    		{/* {
     			<div>{new Date().toLocaleTimeString()}</div>
     			<Btn optionArr={this.state.text}/>
     			<Switch/>
@@ -87,7 +104,9 @@ export default class Home extends Component {
 					right={<Right/>}
 				/>} */}
 
-				<SearchList/>
+				<SearchList name={<List/>} inputRef={(el)=>{this.el=el}}><p>类似插槽</p></SearchList>
+				<div onClick={this.getRef.bind(this)}>获取ref组件</div>
+				{this.state.dom}
 	    	</div>
 	    );
 	}
